@@ -27,9 +27,9 @@
 dataset=CIFAR10
 model=ResVAE
 latent_dim=128
-beta=1e-4
+beta=2e-5
 epochs=20
-num_layers=9
+num_layers=3
 blocks=3
 output_dir=./output/$dataset/$model/$SLURM_JOB_ID
 

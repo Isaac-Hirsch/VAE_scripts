@@ -93,7 +93,7 @@ if __name__ == "__main__":
     print(f"laten_dim:{latent_dim}, beta:{beta}")
 
 
-    device = torch.device("cuda: 0" if torch.cuda.is_available() else "cpu")
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     model = model(device=device,
                     input_size=input_size,
                     input_channels=input_channels,

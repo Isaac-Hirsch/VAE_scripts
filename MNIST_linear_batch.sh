@@ -27,7 +27,7 @@
 dataset=MNIST
 model=LinearVAE
 latent_dim=4
-beta=1e-4
+beta=2e-5
 epochs=20
 output_dir=./output/$dataset/$model/$SLURM_JOB_ID
 

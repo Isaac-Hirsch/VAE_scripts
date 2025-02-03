@@ -27,7 +27,7 @@
 dataset=MNIST
 model="ShallowConvVAE"
 latent_dim=2
-beta=1e-4
+beta=2e-5
 epochs=20
 output_dir=./output/$dataset/$model/$SLURM_JOB_ID
 
