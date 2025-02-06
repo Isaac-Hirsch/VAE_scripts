@@ -15,22 +15,26 @@ class Binarize(torch.nn.Module):
         return img
 
 def get_MNIST():
-    input_size = 28
-    input_channels = 1
+    result = {}
+    result['input_size'] = 28
+    result['input_channels'] = 1
 
-    transform = transforms.Compose([transforms.ToTensor(), Binarize()])
-    MNIST = datasets.MNIST(root="Datasets", train=True, transform=transform, download=True)
+    transform = transforms.Compose([transforms.ToTensor(), Binarize(), transforms.Resize(result['input_size']), transforms.CenterCrop(result['input_size'])])
+    result['train'] = datasets.MNIST(root="Datasets", train=True, transform=transform, download=True)
+    result['test'] = datasets.MNIST(root="Datasets", train=False, transform=transform, download=True)
 
-    return MNIST, input_size, input_channels
+    return result
 
 def get_CIFAR10():
-    input_size = 32
-    input_channels = 3
+    result = {}
+    result['input_size'] = 32
+    result['input_channels'] = 3
 
-    transform = transforms.Compose([transforms.ToTensor(), transforms.Resize(input_size), transforms.CenterCrop(input_size)])
-    CIFAR10 = datasets.CIFAR10(root="Datasets", train=True, transform=transform, download=True)
+    transform = transforms.Compose([transforms.ToTensor(), transforms.Resize(result['input_size']), transforms.CenterCrop(result['input_size'])])
+    result['train'] = datasets.CIFAR10(root="Datasets", train=True, transform=transform, download=True)
+    result['test'] = datasets.CIFAR10(root="Datasets", train=False, transform=transform, download=True)
 
-    return CIFAR10, input_size, input_channels
+    return result
 
 def get_CelebA():
     raise NotImplementedError
